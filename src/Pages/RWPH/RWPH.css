@@ -1,0 +1,94 @@
+/* Main container */
+.oht-container {
+    position: absolute; /* Position the tank relative to the page */
+    top: 0; /* Align it to the top of the page */
+    left: 0; /* Align it to the left of the page */
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+}
+
+/* Wrapper for the entire OHT structure */
+.oht-wrapper {
+    width: 100%;
+    max-width: 300px; /* Maximum size for larger screens */
+    transform: scale(0.3); /* Scaled down to 30% */
+    transform-origin: center; /* Scale from the center */
+}
+
+/* Responsive scaling using media queries */
+@media (max-width: 768px) {
+    .oht-wrapper {
+        transform: scale(0.25); /* Slightly smaller on medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .oht-wrapper {
+        transform: scale(0.2); /* Smaller on small screens */
+    }
+}
+
+.oht-tank {
+    width: 100%; /* Matches the wrapper's width */
+    aspect-ratio: 1 / 1; /* Keeps it square */
+    background: linear-gradient(to right, #8b8a8a, #fbfbfb 50%, #8b8a8a);
+    border-radius: 2rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.2rem solid #000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.oht-tank-label {
+    font-family: 'Courier New', Courier, monospace;
+    color: #000;
+    font-weight: bold;
+    font-size: 7rem; /* Adjust font size */
+}
+
+.oht-stand {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Matches tank width */
+    height: 5rem; /* Fixed stand height */
+    position: relative;
+}
+
+.stand-pillar {
+    width: 10%; /* Width as a percentage of the tank width */
+    height: 100%; /* Match the stand height */
+    background: linear-gradient(to right, #6c7885, #23211f 50%, #6c7885);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    position: absolute;
+}
+
+.stand-pillar:nth-child(1) {
+    left: 10%; /* Adjusted for proportional scaling */
+    bottom: 0;
+}
+
+.stand-pillar:nth-child(2) {
+    left: 30%;
+    bottom: 0;
+}
+
+.stand-pillar:nth-child(3) {
+    right: 30%;
+    bottom: 0;
+}
+
+.stand-pillar:nth-child(4) {
+    right: 10%;
+    bottom: 0;
+}
+
+.oht-basement {
+    width: 100%; /* Slightly wider than the tank */
+    height: 2rem; /* Fixed height for the basement */
+    background: linear-gradient(to bottom, #58616b, #4d4b49 50%, #58616b);
+    border-radius: 0.3rem;
+    border: 0.1rem solid #000;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.3);
+}

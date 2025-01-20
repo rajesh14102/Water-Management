@@ -1,0 +1,525 @@
+body {
+    background-color: #e5e5e5;
+  }
+  
+  .diagram-container {
+    transform: scale(0.8);  /* Adjust this value (e.g., 0.7 to shrink to 70%) */
+    transform-origin: center;  /* Keep the scaling from the top-left corner */
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* General container setup */
+  .first-part {
+    display: flex;
+    position: relative;
+    padding: 20px;
+  }
+  
+  /* Flex container for tank and pipe */
+  .tank-and-pipe {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Tank styling */
+  .tank {
+    width: 15vw;
+    height: 8vw;
+    border: 2px solid #000;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .waterless-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1vw;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  .water {
+    flex: 1;
+    width: 100%;
+    background: #6bcfff;
+  }
+  
+  /* Pipe and its components */
+  .pipe-part {
+    width: 20vw;
+    position: relative;
+  }
+  
+  .pipe-part-2 {
+    width: 30vw;
+    position: relative;
+  }
+  
+  .outer-text {
+    text-align: center;
+    font-size: 0.8vw;
+    font-weight: bold;
+    margin-bottom: 1vh;
+  }
+  
+  .pipe {
+    width: 100%;
+    height: 0.6vw;
+    border: 1px outset rgb(98, 163, 216);
+    background-image: linear-gradient(to top, #3b9cd8 0%, #0096f3 100%);
+    position: relative;
+    top: 50%;
+    transform: translateY(50%);
+  }
+  
+  .transmission-line {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .red-point {
+    width: 0.8vw;
+    height: 0.8vw;
+    border: 0.1vw solid rgb(97, 50, 50);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 227, 227, 1) 0%, rgb(255, 0, 0) 100%);
+  }
+  
+  .arrow-img {
+    width: 2.5vw;
+    height: 2.5vw;
+  }
+  
+  .cylinder {
+    position: relative;
+    --r: 1.5vw;
+    width: 12vw;
+    height: 8vw;
+    background: radial-gradient(50% var(--r) at 50% var(--r), #f1dddd33 99.99%, #0000 0),
+      radial-gradient(50% var(--r) at 50% calc(100% - var(--r)), rgba(210, 201, 201, 0.527) 99.99%, #cecccc61 0),
+      rgb(142 140 140);
+    border-radius: 100% / calc(var(--r) * 2);
+    border: 2px solid #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .water-tank-text2 {
+    font-size: 1vw;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+  }
+  
+  .tank-text-2 {
+    display: block;
+    font-size: 0.8vw;
+    font-weight: normal;
+    margin-top: 1rem;
+  }
+  
+  .vertical-pipe {
+    width: 0.6vw;
+    height: 10vw;
+    background-image: linear-gradient(to top, #3b9cd8 0%, #0096f3 100%);
+    border: 1px outset rgb(98, 163, 216);
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0.5vw 0;
+  }
+  
+  .vertical-pipe .red-point {
+    width: 0.8vw;
+    height: 0.8vw;
+    border: 0.1vw solid rgb(97, 50, 50);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 227, 227, 1) 0%, rgb(255, 0, 0) 100%);
+  }
+  
+  .horizontal-pipe {
+    width: 20vw;
+    height: 0.6vw;
+    background-image: linear-gradient(to left, #3b9cd8 0%, #0096f3 100%);
+    border: 1px outset rgb(98, 163, 216);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    left: -20vw;  /* Fixed position relative to vertical pipe */
+    bottom: 0; /* Align with the bottom of the vertical pipe */
+  }
+  
+  .horizontal-pipe .red-point {
+    width: 0.8vw;
+    height: 0.8vw;
+    border: 0.1vw solid rgb(97, 50, 50);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 227, 227, 1) 0%, rgb(255, 0, 0) 100%);
+  }
+  
+  .horizontal-text {
+    text-align: center;
+    font-size: 0.8vw;
+    font-weight: bold;
+    margin-bottom: 1vh;
+    position: relative;
+    right: 7vw; /* Adjust as needed for horizontal alignment */
+    white-space: nowrap; /* Ensure the text stays on a single line */
+  }
+  
+  .second-pipe {
+    width: 28vw; /* Adjust size as needed */
+    height: 0.6vw;
+    position: absolute;
+    left: -48vw; /* Align the second pipe with the left side of the first pipe */
+    bottom: 0; /* Align with the bottom of the first pipe */
+    display: flex;
+    justify-content: center;
+    gap: 4vw; /* Space between the red points */
+  }
+  
+  .second-text {
+    position: absolute;
+    bottom: 1vw; /* Fixed distance above the second pipe */
+    left: -48vw; /* Align the text with the left edge of the second pipe */
+    font-size: 0.8vw;
+    font-weight: bold;
+    text-align: center;
+    width: 28vw; /* Match the width of the second pipe */
+    white-space: nowrap; /* Prevent wrapping */
+  }
+  
+  .press-enclave {
+    width: 120px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: -20vw; /* Center horizontally */
+    bottom: 0; /* Adjust this value to vertically center it near the pipes */
+    transform: translateX(-50%); /* Adjust to perfectly center */
+    z-index: 10; /* Make sure it sits above other elements */
+  }
+  
+  /* Rest of the press enclave styling */
+  .mbr-1 {
+    --r: 7px;
+    width: 100px;
+    height: 48px;
+    background: radial-gradient(50% var(--r) at 50% var(--r), #f1e9dd33 99.99%, #f6e9cb00 0), radial-gradient(50% var(--r) at 50% calc(100% - var(--r)), rgba(243, 228, 187, 0.527) 99.99%, #b7a96761 0), rgba(233, 217, 172, 0.527);
+    border-radius: 100% / calc(var(--r) * 2);
+    position: relative;
+    top: 3px;
+  }
+  
+  .pillar-part {
+    width: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .vertical-pillar {
+    width: 3.5px;
+    height: 55px;
+    border: 1px solid black;
+    border-radius: 1px;
+    background-color: rgb(183, 183, 183);
+    margin-bottom: 35px;
+  }
+  
+  .center-pipe {
+    width: 6px;
+    height: 95px;
+    border: 1px outset rgb(98, 163, 216);
+    background-image: linear-gradient(to top, #3b9cd8 0%, #0096f3 100%);
+  }
+  
+  .pillar-part-1 {
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 60px;
+  }
+  
+  .horizontal-pillar {
+    width: 65px;
+    height: 3.5px;
+    border: 1px solid black;
+    border-radius: 1px;
+    background-color: rgb(183, 183, 183);
+  }
+  
+  .tank-base {
+    width: 120px;
+    height: 12px;
+    background-color: rgb(255, 151, 151);
+    border: 1px solid rgb(43, 43, 43);
+  }
+  
+  .press-enclave-2 {
+    width: 120px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: -48vw; /* Center horizontally */
+    bottom: 0; /* Adjust this value to vertically center it near the pipes */
+    transform: translateX(-50%); /* Adjust to perfectly center */
+    z-index: 10; /* Make sure it sits above other elements */
+  }
+  
+  .horizontal-text-1 {
+    text-align: left;
+    font-size: 0.8vw;
+    font-weight: bold;
+    margin-bottom: 15vh;
+    position: absolute;
+    right: 8.5vw; /* Adjust as needed for horizontal alignment */
+    white-space: nowrap; /* Ensure the text stays on a single line */
+  }
+  
+  .horizontal-text-2 {
+    text-align: left;
+    font-size: 0.8vw;
+    font-weight: bold;
+    margin-bottom: 15vh;
+    position: absolute;
+    right: 52.5vw; /* Adjust as needed for horizontal alignment */
+    white-space: nowrap; /* Ensure the text stays on a single line */
+  }
+  
+  .horizontal-text-3 {
+    text-align: left;
+    font-size: 0.8vw;
+    font-weight: bold;
+    margin-bottom: 13vh;
+    position: absolute;
+    right: 8vw; /* Adjust as needed for horizontal alignment */
+    white-space: nowrap; /* Ensure the text stays on a single line */
+  }
+  
+  .horizontal-text-4 {
+    text-align: left;
+    font-size: 0.8vw;
+    font-weight: bold;
+    margin-top: 80vh;
+    position: absolute;
+    right: 17vw; /* Adjust as needed for horizontal alignment */
+    white-space: nowrap; /* Ensure the text stays on a single line */
+  }
+  
+  .horizontal-text-5 {
+    text-align: left;
+    font-size: 0.8vw;
+    font-weight: bold;
+    margin-bottom: 15vh;
+    position: absolute;
+    right: 36.5vw; /* Adjust as needed for horizontal alignment */
+    white-space: nowrap; /* Ensure the text stays on a single line */
+  }
+  
+  .horizontal-text-6 {
+    text-align: left;
+    font-size: 0.8vw;
+    font-weight: bold;
+    margin-top: 40vh;
+    position: absolute;
+    right: 15vw; /* Adjust as needed for horizontal alignment */
+    white-space: nowrap; /* Ensure the text stays on a single line */
+  }
+  
+  .horizontal-text-7 {
+    text-align: left;
+    font-size: 0.8vw;
+    font-weight: bold;
+    margin-top: 14vh;
+    position: absolute;
+    right: 22vw; /* Adjust as needed for horizontal alignment */
+    white-space: nowrap; /* Ensure the text stays on a single line */
+  }
+  
+  .horizontal-text-8 {
+    text-align: left;
+    font-size: 0.8vw;
+    font-weight: bold;
+    margin-bottom: 15vh;
+    position: absolute;
+    right:9vw; /* Adjust as needed for horizontal alignment */
+    white-space: nowrap; /* Ensure the text stays on a single line */
+  }
+  
+  /* Vertical Pipe Container */
+  .vertical-pipe-2 {
+    width: 0.6vw;
+    height: 40vw;  /* Adjust the height of the pipe */
+    max-height: 40vw;
+    background-image: linear-gradient(to top, #3b9cd8 0%, #0096f3 100%);
+    border: 1px outset rgb(98, 163, 216);
+    position: absolute;
+    top: calc(100% + 2px); /* Positioning relative to other elements */
+    right: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;  /* Evenly space the arrows inside */
+    align-items: center;  /* Center the arrows horizontally */
+    padding-top: 3vw;  /* Space at the top of the pipe */
+    padding-bottom: 3vw;  /* Space at the bottom of the pipe */
+    gap: 10vh;
+  }
+  
+  /* Arrow styling */
+  .arrow-down {
+    width: 2.5vw;  /* Width of the arrow */
+    height: 2.5vw;  /* Height of the arrow */
+    background-image: url('../../Assets/image\ down.png');  /* Correct path to the arrow image */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;  /* Ensure the image is centered inside the div */
+  }
+  
+  
+  .arrow-left {
+    width: 2.5vw;  /* Width of the arrow */
+    height: 2.5vw;  /* Height of the arrow */
+    background-image: url('../../Assets/image\ left.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;  /* Ensure the image is centered inside the div */
+  }
+  
+  .horizontal-pipe-2 {
+    width: 25vw;
+    height: 0.6vw;
+    background-image: linear-gradient(to left, #3b9cd8 0%, #0096f3 100%);
+    border: 1px outset rgb(98, 163, 216);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    left: -25vw;  
+    bottom: 50vh; 
+  }
+  
+  .press-enclave-3 {
+    width: 120px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: -25vw; /* Center horizontally */
+    bottom: 50vh; /* Adjust this value to vertically center it near the pipes */
+    transform: translateX(-50%); /* Adjust to perfectly center */
+    z-index: 10; /* Make sure it sits above other elements */
+  }
+  
+  .second-pipe-2 {
+    width: 28vw; /* Adjust size as needed */
+    height: 0.6vw;
+    position: absolute;
+    left: -53vw; /* Align the second pipe with the left side of the first pipe */
+    bottom: 50vh; /* Align with the bottom of the first pipe */
+    display: flex;
+    justify-content: center;
+  }
+  
+  .press-enclave-4 {
+    width: 120px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: -53vw; /* Center horizontally */
+    bottom: 50vh; /* Adjust this value to vertically center it near the pipes */
+    transform: translateX(-50%); /* Adjust to perfectly center */
+    z-index: 10; /* Make sure it sits above other elements */
+  }
+  
+  .horizontal-pipe-3 {
+    width: 39vw;
+    height: 0.6vw;
+    background-image: linear-gradient(to left, #3b9cd8 0%, #0096f3 100%);
+    border: 1px outset rgb(98, 163, 216);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    left: -39vw;  
+    bottom: 25vh; 
+  }
+  
+  .horizontal-pipe-4 {
+    width: 10vw;
+    height: 0.6vw;
+    background-image: linear-gradient(to left, #3b9cd8 0%, #0096f3 100%);
+    border: 1px outset rgb(98, 163, 216);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    left: -10vw;  
+    bottom: 0; 
+  }
+  
+  .press-enclave-5 {
+    width: 120px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: -39vw; /* Center horizontally */
+    bottom: 25vh; /* Adjust this value to vertically center it near the pipes */
+    transform: translateX(-50%); /* Adjust to perfectly center */
+    z-index: 10; /* Make sure it sits above other elements */
+  }
+  
+  .press-enclave-6 {
+    width: 120px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: -10vw; /* Center horizontally */
+    bottom: 0vh; /* Adjust this value to vertically center it near the pipes */
+    transform: translateX(-50%); /* Adjust to perfectly center */
+    z-index: 10; /* Make sure it sits above other elements */
+  }
+  
+  

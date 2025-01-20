@@ -1,0 +1,207 @@
+/* General Header Styles */
+header {
+    width: 100vw;
+    height: 10vh;
+    background-image: radial-gradient(rgb(95, 141, 190) 1px, rgb(15, 85, 122));
+    border-bottom: 1px solid rgb(15, 85, 122);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.logo-container,
+.logo-container-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    height: 100%;
+    /* Match header height */
+    padding: 0 10px;
+    /* Same padding for both containers */
+    box-sizing: border-box;
+}
+
+.logo {
+    max-height: 80%;
+    max-width: 80%;
+}
+
+.header-content {
+    text-align: center;
+    flex-grow: 1;
+    padding: 0 10px;
+}
+
+.header-title {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: white;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    /* Prevents text wrapping */
+}
+
+.header-subtitle {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 5px;
+    white-space: nowrap;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 0 10px;
+}
+
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+    /* Prevent wrapping for logout button and username */
+}
+
+.logout {
+    font-family: 'Courier New', Courier, monospace;
+    padding: 3px 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: 1px solid white;
+    background-color: #ee1d24;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.block-diagram {
+    font-family: 'Courier New', Courier, monospace;
+    padding: 3px 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    /* Arrange items vertically */
+    align-items: center;
+    /* Center items horizontally */
+    gap: 5px;
+    /* Add vertical space between username and logout button */
+    text-align: center;
+    /* Ensure text is centered */
+}
+
+
+.user {
+    color: white;
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+.username {
+    color: yellow;
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+
+    .header-title,
+    .header-subtitle {
+        font-size: 1rem;
+    }
+
+    .logout {
+        font-size: 0.7rem;
+        padding: 0 8px;
+    }
+
+    .user {
+        font-size: 0.9rem;
+    }
+
+    .username {
+        font-size: 0.9rem;
+    }
+
+    .logo {
+        max-height: 70%;
+        max-width: 70%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .logo-container,
+    .logo-container-right {
+        height: auto;
+        padding: 5px;
+    }
+
+    .header-content {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .header-title,
+    .header-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .user-section {
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-end;
+    }
+
+    .logout {
+        font-size: 0.7rem;
+    }
+
+    .user,
+    .username {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .header-title,
+    .header-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .logout {
+        font-size: 0.6rem;
+        padding: 0 6px;
+    }
+
+    .user {
+        font-size: 0.7rem;
+    }
+
+    .username {
+        font-size: 0.7rem;
+    }
+
+    .logo {
+        max-height: 50%;
+        max-width: 50%;
+    }
+}
